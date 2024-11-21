@@ -1,0 +1,11 @@
+{
+    "Users": true,
+    "Settings": true,
+    "RolePermission": true,
+    "Themes": true,
+    "Dashboard": true,
+    "Company": true,
+    "Blogs": true,
+    "Tasks": true,
+    "Todos": true
+}
