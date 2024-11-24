@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
@@ -64,3 +65,7 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+=======
+# Shopix
+Shopix is an eCommerce application built with Laravel 11, offering a user-friendly shopping experience. Admins can track orders, manage inventory, and create employee accounts for efficient operations. With secure payments and real-time order tracking, Shopix enhances online shopping for customers and administrators alike.
+>>>>>>> c55250f72b4079e945afcdc865a64a6bc2ab521a
