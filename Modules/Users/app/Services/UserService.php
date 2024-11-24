@@ -48,8 +48,13 @@ class UserService implements UserServiceInterface
     }
 
 
-    public function getUsers(int $id) {
+    public function getUser(int $id) {
 
         return User::findOrFail($id);
+    }
+    public function getAllUsers(): array
+    {
+        // Implementation for getting all users
+        return ["User 1", "User 2", "User 3"];
     }
 }

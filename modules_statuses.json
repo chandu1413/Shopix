@@ -7,5 +7,7 @@
     "Company": true,
     "Blogs": true,
     "Tasks": true,
-    "Todos": true
+    "Todos": true,
+    "Customer": true,
+    "Ecommerce": true
 }

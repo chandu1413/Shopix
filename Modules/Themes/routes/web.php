@@ -17,3 +17,7 @@ use Modules\Themes\Http\Controllers\ThemesController;
 Route::group([], function () {
     Route::resource('themes', ThemesController::class)->names('themes');
 });
+
+Route::get('/', function () {
+    return view('themes::default.layout');
+});

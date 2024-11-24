@@ -45,9 +45,9 @@
                     <label for="department">Department</label>
                     <select name="department" id="department">
                         <option disabled selected value=""></option>
-                       @foreach($departments as $department)
+                       {{-- @ foreach($departments as $department)
                         <option value="{{$department->id}}">{{$department->name}}</option>
-                        @endforeach
+                        @ endforeach --}}
                     </select>
                  </div>
 

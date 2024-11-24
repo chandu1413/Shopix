@@ -68,27 +68,18 @@ class UserController extends Controller implements HasMiddleware
 
 
         // Check if the user is associated with a company
-        if (!$user->company) {
-            return redirect()->route('company.create')->with('error', 'Please add the Company to add  users');
-        }
-        if ($user->org_role == 'employee') {
-            return abort(403, 'You do not have permission to access this page.');
-        }
+        // if (!$user->company) {
+        //     return redirect()->route('company.create')->with('error', 'Please add the Company to add  users');
+        // }
+        // if ($user->org_role == 'employee') {
+        //     return abort(403, 'You do not have permission to access this page.');
+        // }
         // if($user)
         // dd($user->org_role == 'bose');
         // die;
 
-        $user_company_id = $user->company->id;
-
-        // Get departments associated with the user
-        $departmentsQuery = Department::where('admin_id', $user->id)
-            ->where('company_id', $user_company_id);
-
-        $departments = $departmentsQuery->get();
-
-        if ($departments->count() == 0) {
-            return redirect()->route('department.index')->with('error', 'Please add Department first');
-        }
+       
+        
 
         // Check if the user is an active admin
         if ($user->is_admin == 1 && $user->is_active == 1) {
@@ -108,7 +99,7 @@ class UserController extends Controller implements HasMiddleware
 
         return view('users::users.create', [
             'roles' => $roles,
-            'departments' => $departments,
+            
         ]);
     }
 

@@ -10,8 +10,12 @@ use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Artisan;
 
+// Route:: get('/', function () {
+//     return view('welcome');
+// });
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('themes::default.layout');
 });
 
 // Admin routes
