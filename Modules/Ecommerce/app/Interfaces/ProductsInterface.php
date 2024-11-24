@@ -46,5 +46,5 @@ interface ProductsInterface
      * @param int $perPage Number of products per page (for pagination).
      * @return Product[]
      */
-    public function getAll(array $filters = [], int $perPage = 10): array;
+    public function getAll(array $filters = [], int $perPage = 10);
 }

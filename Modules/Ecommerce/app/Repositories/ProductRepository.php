@@ -60,15 +60,16 @@ class ProductRepository implements ProductsInterface
     }
 
     /**
-     * Get all products with optional filters.
+     * Get all products with optional filters and pagination.
      *
      * @param array $filters
      * @param int $perPage
-     * @return Product[]
+     * @param int $page
+     * @return Product[]|Paginator
      */
-    public function getAll(array $filters = [], int $perPage = 10): array 
+    public function getAll(array $filters = [], int $perPage = 10, int $page = 1)
     {
-        // You can add filtering logic here based on $filters
-        return Product::where($filters)->paginate($perPage)->items(); // Return paginated items
+        return Product::where($filters)->paginate($perPage, ['*'], 'page', $page);
     }
+
 }
