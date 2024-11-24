@@ -25,10 +25,11 @@ class ProductService
      * @param array $filters
      * @param int $perPage
      * @param int $page
-     * @return Product[]|Paginator
+     * @return array
      */
     public function getAllProducts(array $filters = [], int $perPage = 10, int $page = 1)
     {
+        // Call the repository method to fetch products
         return $this->ProductsRepository->getAll($filters, $perPage, $page);
     }
 }

@@ -19,36 +19,26 @@ class ProductController extends Controller
      * Get all products with optional filters and pagination.
      *
      * @param Request $request
-     * @param int $perPage
-     * @param int $page
      * @return \Illuminate\Http\JsonResponse
      */
-    public function index(Request $request, $perPage = 10, $page = 1)
+    public function index(Request $request)
     {
         $filters = $request->query(); // Get filters from query parameters
+        $perPage = $request->input('per_page', 10); // Default items per page
+        $page = $request->input('page', 1); // Default page number
 
-        // Optionally, you can override perPage and page from request body or other sources
-        // if ($request->has('per_page')) {
-        //     $perPage = $request->input('per_page');
-        // }
-
-        $perPage = 10;
-        
-        if ($request->has('page')) {
-            $page = $request->input('page');
-        }
-
+        // Call the service to get products
         $products = $this->ProductsService->getAllProducts($filters, $perPage, $page);
 
         return response()->json($products); // Return products as JSON
-    }
+    } 
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view('ecommerce::products.create');
+        return view('ecommerce::product.product.create');
     }
 
     /**
@@ -71,7 +61,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        return view('ecommerce::products.show');
+        return view('ecommerce::product.products.show');
     }
 
     /**
@@ -79,7 +69,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        return view('ecommerce::products.edit');
+        return view('ecommerce::product.products.edit');
     }
 
     /**

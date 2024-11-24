@@ -24,7 +24,7 @@ use Modules\Ecommerce\Http\Controllers\TransactionController;
 
 Route::middleware('auth')->group(function () {
 
-    Route::prefix('dashboard')->group(function () {
+    Route::prefix('admin/dashboard')->group(function () {
 
         // products routes
         Route::prefix('products')->group(function () {

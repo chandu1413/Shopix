@@ -65,11 +65,21 @@ class ProductRepository implements ProductsInterface
      * @param array $filters
      * @param int $perPage
      * @param int $page
-     * @return Product[]|Paginator
+     * @return array
      */
     public function getAll(array $filters = [], int $perPage = 10, int $page = 1)
     {
-        return Product::where($filters)->paginate($perPage, ['*'], 'page', $page);
+        // Fetch paginated products
+        $products = Product::where($filters)->paginate($perPage, ['*'], 'page', $page);
+
+        // Return the paginated products as an array
+        return [
+            'data' => $products->items(), // The actual product items
+            'current_page' => $products->currentPage(),
+            'last_page' => $products->lastPage(),
+            'per_page' => $products->perPage(),
+            'total' => $products->total(),
+        ];
     }
 
 }

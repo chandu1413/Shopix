@@ -1,6 +1,29 @@
  {{-- @ extends('dashboard::admin.master') --}}
  @extends('dashboard::adminlte.master')
  
+ {{-- @ extends('dashboard::admin.master') --}}
+@extends('dashboard::adminlte.master')
+
+@section('content-head')
+<div class="row ">
+    <div class="col-sm-6 ">
+        <h3 class="mb-0">Users List</h3>
+    </div>
+    <div class="col-sm-6 d-flex justify-content-end">
+        <a href="{{route('users.create')}}" class="btn btn-primary">Create</a>
+       
+    </div>
+</div> <!--end::Row-->
+<div class=" d-flex justify-content-start ">
+     
+    <ol class="breadcrumb float-sm-end">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+            Users List
+        </li>
+    </ol>
+</div> <!-- /.card-header -->
+@endsection
  @section('content')
 
      <div class="form-container">

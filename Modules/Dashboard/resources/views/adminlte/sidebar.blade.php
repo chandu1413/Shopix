@@ -7,6 +7,62 @@
     <div class="sidebar-wrapper">
         <nav class="mt-2"> <!--begin::Sidebar Menu-->
             <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
+                <li class="nav-header">Products Management</li>
+                <li class="nav-item  "> <a href="#" class="nav-link "> <i
+                            class="nav-icon bi bi-speedometer"></i>
+                        <p> Categorys <i class="nav-arrow bi bi-chevron-right"></i> </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item"> <a href="{{ route('users.index') }}" class="nav-link "> <i
+                                    class="nav-icon bi bi-circle"></i>
+                                <p>Categorys List</p>
+                            </a>
+                        </li>
+                        <li class="nav-item"> <a href="{{ route('users.create') }}" class="nav-link"> <i
+                                    class="nav-icon bi bi-circle"></i>
+                                <p>Create Categorys</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="nav-item  "> <a href="#" class="nav-link  "> <i
+                            class="nav-icon bi bi-speedometer"></i>
+                        <p> Brands  <i class="nav-arrow bi bi-chevron-right"></i> </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item"> <a href="{{ route('users.index') }}" class="nav-link "> <i
+                                    class="nav-icon bi bi-circle"></i>
+                                <p>Customer Brands</p>
+                            </a>
+                        </li>
+                        <li class="nav-item"> <a href="{{ route('users.create') }}" class="nav-link"> <i
+                                    class="nav-icon bi bi-circle"></i>
+                                <p>Create Brands</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="nav-item  "> <a href="#" class="nav-link  "> <i
+                            class="nav-icon bi bi-speedometer"></i>
+                        <p> Products <i class="nav-arrow bi bi-chevron-right"></i> </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item"> <a href="{{ route('users.index') }}" class="nav-link  "> <i
+                                    class="nav-icon bi bi-circle"></i>
+                                <p>Products List</p>
+                            </a>
+                        </li>
+                        <li class="nav-item"> <a href="{{ route('users.create') }}" class="nav-link"> <i
+                                    class="nav-icon bi bi-circle"></i>
+                                <p>Create Products</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+
                 <li class="nav-header">Customer Management</li>
                 <li class="nav-item  "> <a href="#" class="nav-link active"> <i
                             class="nav-icon bi bi-speedometer"></i>
