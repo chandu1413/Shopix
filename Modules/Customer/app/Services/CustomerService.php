@@ -14,37 +14,32 @@ class CustomerService implements UserServiceInterface
         // This can be implemented as needed
     }
 
-    public function createUser(array $request): ModelsCustomer
-    {
-        // Validate the request data
-        $this->validateUser($request);
+    public function createUser (array $data): ModelsCustomer
+{
+    // Handle the photo upload if needed (commented out in your original code)
+    // $photoPath = null;
+    // if (isset($data['photo'])) {
+    //     $photoPath = $data['photo']->store('customer/photos', 'public');
+    // }
 
-        // Handle the photo upload
-        // $photoPath = null;
-        // if ($request['photo']) {
-        //     $photoPath = $request['photo']->store('customer/photos', 'public'); // Store in the 'photos' directory in the 'public' disk
-        // }
+    // Use mass assignment
+    $customer = ModelsCustomer::create([
+        'name' => $data['name'],
+        'email' => $data['email'],
+        'password' => bcrypt($data['password']), // Hash the password before saving
+        'mobile_no' => $data['mobile_no'],
+        'is_active' => 1,
+        // 'photo' => $photoPath, // Store the photo path in the database
+    ]);
 
-        // Use mass assignment
-        $customer = ModelsCustomer::create([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'password' => bcrypt($request['password']), // Hash the password before saving
-            'mobile_no' => $request['mobile_no'],
-            'is_active' => 1,
-            // 'photo' => $photoPath, // Store the photo path in the database
-        ]);
-
-        return $customer;
-    }
+    return $customer;
+}
 
     public function updateUser(array $request, int $id): ModelsCustomer
     {
         // Find the customer by ID or fail
         $customer = ModelsCustomer::findOrFail($id);
-
-        // Validate the request data
-        $this->validateUpdateUser($request, $id);
+ 
 
         // Initialize the photo path to the existing photo
         $photoPath = $customer->photo;
@@ -105,40 +100,7 @@ class CustomerService implements UserServiceInterface
     ];
 }
 
-    protected function validateUser(array $data, int $id = null): void
-    {
-        $validator = Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:customers,email' . ($id ? ",$id" : '')],
-            'mobile_no' => ['required', 'string', 'max:15'], // Adjust the max length as needed
-            'photo' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'], // Validate the photo
-            'password' => ['nullable', 'string', 'min:8'], // Password is optional for updates
-        ]);
+     
 
-        if ($validator->fails()) {
-            throw new ValidationException($validator);
-        }
-    }
-
-    protected function validateUpdateUser(array $data, int $id = null): void
-    {
-        $validator = Validator::make($data, [
-            'name' => ['string', 'max:255'],
-            'email' => [
-
-                'string',
-                'email',
-                'max:255',
-                'unique:customers,email' . ($id ? ",$id" : ''),
-            ],
-            'mobile_no' => ['string', 'max:15'], // Adjust max length as necessary
-            'is_active' => ['nullable', 'boolean'], // Assuming is_active is a boolean
-            'photo' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'], // Validate the photo
-            'password' => ['nullable', 'string', 'min:8' ], // Password is optional for updates
-        ]);
-
-        if ($validator->fails()) {
-            throw new ValidationException($validator);
-        }
-    }
+     
 }

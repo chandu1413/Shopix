@@ -4,15 +4,25 @@ namespace Modules\Ecommerce\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Modules\Ecommerce\Interfaces\ProductCategoryInterface;
+use Modules\Ecommerce\Services\ProductCategoryService;
 
 class ProductCategoryController extends Controller
 {
+        public function __construct (
+            protected ProductCategoryInterface $categoryInterface,
+            protected ProductCategoryService $categoryService,
+        )
+        {}
+    
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('ecommerce::index');
+        
+
+        return view('ecommerce::product.category.index');
     }
 
     /**

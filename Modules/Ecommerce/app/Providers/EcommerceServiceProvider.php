@@ -5,11 +5,17 @@ namespace Modules\Ecommerce\Providers;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Modules\Ecommerce\Interfaces\OrdersInterface;
+use Modules\Ecommerce\Interfaces\ProductBrandInterface;
+use Modules\Ecommerce\Interfaces\ProductCategoryInterface;
 use Modules\Ecommerce\Interfaces\ProductInterface;
 use Modules\Ecommerce\Interfaces\ProductsInterface;
+use Modules\Ecommerce\Interfaces\ProductSubCategoryInterface;
 use Modules\Ecommerce\Interfaces\TransactionsInterface;
 use Modules\Ecommerce\Repositories\OrderRepository;
+use Modules\Ecommerce\Repositories\ProductBrandRepository;
+use Modules\Ecommerce\Repositories\ProductCategoryRepository;
 use Modules\Ecommerce\Repositories\ProductRepository;
+use Modules\Ecommerce\Repositories\ProductSubCategoryRepository;
 use Modules\Ecommerce\Repositories\TransactionRepository;
 use Nwidart\Modules\Traits\PathNamespace;
 
@@ -45,6 +51,10 @@ class EcommerceServiceProvider extends ServiceProvider
         $this->app->bind( ProductsInterface::class , ProductRepository::class);
         $this->app->bind(OrdersInterface::class,OrderRepository::class);
         $this->app->bind(TransactionsInterface::class,TransactionRepository::class);
+
+        $this->app->bind(ProductCategoryInterface::class,ProductCategoryRepository::class);
+        $this->app->bind(ProductSubCategoryInterface::class,ProductSubCategoryRepository::class);
+        $this->app->bind(ProductBrandInterface::class,ProductBrandRepository::class);
     }
 
     /**

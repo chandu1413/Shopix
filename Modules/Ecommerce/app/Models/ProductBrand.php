@@ -4,6 +4,8 @@ namespace Modules\Ecommerce\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Storage;
+
 // use Modules\Ecommerce\Database\Factories\ProductBrandFactory;
 
 class ProductBrand extends Model
@@ -28,5 +30,11 @@ class ProductBrand extends Model
     public function products()
     {
         return $this->hasMany(Product::class);
+    }
+
+  
+    public function getLogoFullUrlAttribute()
+    {
+        return $this->logo ? Storage::url($this->logo) : null;
     }
 }

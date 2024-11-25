@@ -2,7 +2,9 @@
 
 namespace Modules\Ecommerce\Interfaces;
 
-interface ProductCategoryInterface
+use App\RepositoryInterface;
+
+interface ProductCategoryInterface extends RepositoryInterface
 {
 
 }

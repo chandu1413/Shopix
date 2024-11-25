@@ -14,6 +14,7 @@ class Customer extends Authenticatable   // If you want email verification
     use HasFactory, Notifiable;
 
     protected $table = 'customers'; 
+    // protected $guard = 'customer';
 
     /**
      * The attributes that are mass assignable.

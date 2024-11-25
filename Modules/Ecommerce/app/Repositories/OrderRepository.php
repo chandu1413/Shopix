@@ -66,7 +66,7 @@ class OrderRepository implements OrdersInterface // Implement the appropriate in
      * @param int $perPage
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function getAll(array $filters = [], int $perPage = 10) 
+    public function getAll(array $filters = [], $searchvalue= '' , int $perPage = 10) 
     {
         // You can add filtering logic here based on $filters
         return Order::where($filters)->paginate($perPage)->items(); // Return paginated items
